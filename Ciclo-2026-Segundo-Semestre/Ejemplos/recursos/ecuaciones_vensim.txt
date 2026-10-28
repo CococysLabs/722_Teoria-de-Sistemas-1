@@ -1,0 +1,44 @@
+CASO BASE PARA CONSTRUIR EN VENSIM
+No es un archivo .mdl ya diagramado. Dibujar la estructura y luego ingresar:
+
+Pendientes = INTEG(Llegadas-Resoluciones,20)      unidades: tickets
+Llegadas = 12                                  unidades: tickets/Day
+Capacidad = 10                                 unidades: tickets/Day
+Tiempo_atencion = 1                            unidades: Day
+Resoluciones = MIN(Capacidad,Pendientes/Tiempo_atencion)
+                                               unidades: tickets/Day
+INITIAL TIME = 0
+FINAL TIME = 30
+TIME STEP = 0.25
+SAVEPER = TIME STEP
+Unidad temporal: Day
+
+Comprobar unidades y comportamiento. Q(0)=20, Q(10)=40, Q(30)=80.
+Política A: Capacidad=16. Política B: Llegadas=8 con Capacidad=10.
+La salida limitada Q/T conserva no negatividad con Euler si dt<=T.
+El caso sin llegadas decae hacia cero; no extraer tickets inexistentes.
+
+RETARDO DE INFORMACIÓN DE PRIMER ORDEN
+Percibidos = INTEG((Pendientes-Percibidos)/Tau,20)     tickets
+Tau = 3                                             Day
+Capacidad = MIN(24,MAX(0,10+Ganancia*(Percibidos-Meta))) tickets/Day
+Ganancia = 0.5                                      1/Day
+Meta = 20                                           tickets
+Los números 24 y 10 de la regla tienen unidades tickets/Day.
+
+TERCER ORDEN
+S1 = INTEG((Pendientes-S1)/(Tau/3),20)
+S2 = INTEG((S1-S2)/(Tau/3),20)
+S3 = INTEG((S2-S3)/(Tau/3),20)
+S1, S2 y S3 en tickets. La capacidad utiliza S3.
+Es un retardo informativo, no un flujo material en tránsito.
+
+LOOKUP ADIMENSIONAL
+x = MAX(0,MIN(2,Pendientes/20))
+Productividad = WITH LOOKUP(x, ([(0,0)-(2,1)],(0,1),(0.5,1),(1,0.9),(1.5,0.6),(2,0.4)))
+El 20 del cociente tiene unidades tickets. Productividad no tiene dimensión.
+Capacidad_efectiva = Capacidad * Productividad
+Use Capacidad_efectiva en la tasa de resoluciones para esta variante.
+
+Fuente de sintaxis: https://vensim.com/documentation/22300.html
+El paquete verifica el ejemplo en Python; el docente debe comprobar la construcción en su instalación de Vensim.

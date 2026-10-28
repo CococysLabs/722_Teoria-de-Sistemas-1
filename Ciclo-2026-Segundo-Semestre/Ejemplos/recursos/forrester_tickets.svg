@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 430" width="940" height="430">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#24445f"/></marker></defs>
+<rect width="940" height="430" fill="white"/><g font-family="Arial" fill="#182332" text-anchor="middle">
+<text x="470" y="32" font-size="23">Mesa de ayuda con un nivel y dos flujos</text>
+<rect x="360" y="140" width="220" height="85" rx="3" fill="#e5eef5" stroke="#24445f" stroke-width="2"/>
+<text x="470" y="175" font-size="21">Pendientes Q</text><text x="470" y="205" font-size="16">tickets · Q inicial = 20</text>
+<circle cx="75" cy="184" r="25" fill="none" stroke="#24445f"/><circle cx="855" cy="184" r="25" fill="none" stroke="#24445f"/>
+<path d="M100 184H355M585 184H825" stroke="#24445f" stroke-width="5" marker-end="url(#a)"/>
+<text x="230" y="155" font-size="18">Llegadas L</text><text x="230" y="218" font-size="15">12 tickets/día</text>
+<text x="710" y="155" font-size="18">Resoluciones R</text><text x="710" y="218" font-size="15">MIN(C, Q/T)</text>
+<text x="620" y="310" font-size="18">Capacidad C</text><text x="620" y="336" font-size="15">10 tickets/día</text>
+<text x="825" y="310" font-size="18">Tiempo T</text><text x="825" y="336" font-size="15">1 día</text>
+<path d="M600 295Q650 255 710 192M810 290Q790 250 720 192M525 225Q590 280 700 192" fill="none" stroke="#5889aa" stroke-dasharray="5 4" stroke-width="2" marker-end="url(#a)"/>
+<text x="470" y="390" font-size="19">dQ/dt = L − R</text><text x="470" y="418" font-size="14">Flechas gruesas: flujo de tickets · Flechas discontinuas: información</text></g></svg>

@@ -1,0 +1,4 @@
+escenario,llegadas,capacidad,pendientes_finales,maximo,area_tickets_dia,residual_balance
+Base,12,10,80.0,80.0,1500.0,0.0
+Politica_A,12,16,12.000000000000012,20.0,369.5000000000002,-1.7053025658242404e-13
+Politica_B,8,10,8.000000000000643,20.0,276.74999999999943,2.842170943040401e-14
